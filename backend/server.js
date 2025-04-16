@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
   socket.on('newComment', ({ boardId, comment }) => {
     socket.to(boardId).emit('newComment', comment);
   });
-  
+
   socket.on('newActivity', ({ boardId, activity }) => {
     socket.to(boardId).emit('newActivity', activity);
   });

@@ -12,4 +12,6 @@ router.post('/', auth, createBoard);
 router.get('/', auth, getBoards);
 router.post('/invite/:boardId', auth, isBoardMember, isBoardOwner, inviteByEmail);
 
+
+
 module.exports = router;

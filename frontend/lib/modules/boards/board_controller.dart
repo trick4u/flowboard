@@ -25,4 +25,12 @@ class BoardController extends GetxController {
       Get.snackbar('Error', 'Failed to fetch boards');
     }
   }
+
+  Future<void> createBoard(String title) async {
+  final token = storage.read('token');
+  await _dio.post('/boards', data: {
+    'title': title
+  }, options: Options(headers: {'Authorization': 'Bearer $token'}));
+  await fetchBoards(); // refresh list
+}
 }
